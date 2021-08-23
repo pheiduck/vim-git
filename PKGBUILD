@@ -1,3 +1,6 @@
+# Maintainer: pheiduck <pheiduck@github.com>
+
+# Arch Linux Credits:
 # Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
 # Contributor: Anatol Pomozov <anatol.pomozov@gmail.com>
 # Contributor: Thomas Dziedzic <gostrc@gmail.com>
@@ -9,7 +12,7 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=8.2.3367
+pkgver=8.2.3369
 _versiondir=82
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
