@@ -14,7 +14,7 @@ pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
 pkgver=8.2.3676
 _versiondir=82
-pkgrel=1
+pkgrel=2
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
 url='https://www.vim.org'
 arch=('x86_64')
@@ -120,10 +120,6 @@ package_vim-runtime() {
   install -Dm 644 "${srcdir}"/vimrc "${pkgdir}"/etc/vimrc
   install -Dm 644 "${srcdir}"/archlinux.vim \
     "${pkgdir}"/usr/share/vim/vimfiles/archlinux.vim
-
-  # rgb.txt file
-  install -Dm 644 runtime/rgb.txt \
-    "${pkgdir}"/usr/share/vim/vim${_versiondir}/rgb.txt
 
   # no desktop files and icons
   rm -r "${pkgdir}"/usr/share/{applications,icons}
