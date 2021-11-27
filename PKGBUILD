@@ -14,14 +14,14 @@ pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
 pkgver=8.2.3683
 _versiondir=82
-pkgrel=1
+pkgrel=2
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
 url='https://www.vim.org'
 arch=('x86_64')
 license=('custom:vim')
 makedepends=('glibc' 'libgcrypt' 'gpm' 'python2' 'python' 'ruby' 'libxt' 'gtk3' 'lua'
              'gawk' 'tcl' 'pcre' 'zlib' 'libcanberra')
-source=(https://github.com/vim/vim/archive/v${pkgver}/${pkgbase}-${pkgver}.tar.gz
+source=(https://github.com/${pkgbase}/${pkgbase}/archive/refs/tags/v${pkgver}.tar.gz
         vimrc
         archlinux.vim
         vimdoc.hook)
