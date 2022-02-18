@@ -12,7 +12,7 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=8.2.4402
+pkgver=8.2.4411
 _versiondir=82
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
@@ -200,6 +200,9 @@ package_gvim() {
   # license
    install -Dm 644 runtime/doc/uganda.txt \
     "${pkgdir}"/usr/share/licenses/${pkgname}/license.txt
+    
+  # remove Xfile after compiling
+  rm -f /$HOME/Xfile.bak
 }
 
 # vim: ts=2 sw=2 et:
