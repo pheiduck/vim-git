@@ -33,7 +33,7 @@ jobs:
         env:
           PACMAN_VERSION: 6.0.1
         run: |
-          sudo git clone --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
+          sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
           pushd pacman
           sudo curl -sO https://sources.archlinux.org/other/pacman/pacman-${PACMAN_VERSION}.tar.xz
           sudo tar -xvf pacman-${PACMAN_VERSION}.tar.xz
@@ -57,7 +57,7 @@ jobs:
       - id: install_keyrings
         run: |
           sudo install -dm755 /usr/share/pacman/keyrings/
-          sudo git clone --depth 1 https://gitlab.manjaro.org/packages/core/manjaro-keyring.git
+          sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/manjaro-keyring.git
           pushd manjaro-keyring
           sudo install -m0644 manjaro.gpg /usr/share/pacman/keyrings/
           sudo install -m0644 manjaro-trusted /usr/share/pacman/keyrings/
@@ -76,7 +76,7 @@ jobs:
           sudo pacman-key --populate archlinux manjaro
       - id: install_manjaro-chrootbuild
         run: |
-          sudo git clone --depth 1 https://gitlab.manjaro.org/tools/development-tools/manjaro-chrootbuild
+          sudo git clone -q --depth 1 https://gitlab.manjaro.org/tools/development-tools/manjaro-chrootbuild
           pushd manjaro-chrootbuild
           sudo ./install.sh "PACKAGER = pheiduck <pheiduck@github.com>"
           popd
@@ -85,7 +85,7 @@ jobs:
           PACKAGE: vim-git
           REPO: pheiduck
         run: |
-          sudo git clone https://github.com/${{ matrix.repo }}/${{ matrix.package }}.git
+          sudo git clone -q https://github.com/${{ matrix.repo }}/${{ matrix.package }}.git
       - id: build_package
         run: |
           sudo chrootbuild -p ${{ matrix.package }}
