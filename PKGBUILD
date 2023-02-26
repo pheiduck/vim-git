@@ -12,7 +12,7 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=9.0.1355
+pkgver=9.0.1357
 _versiondir=90
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
@@ -70,7 +70,7 @@ build() {
       --enable-luainterp=dynamic \
       --enable-tclinterp=dynamic \
       --disable-canberra
-    make
+    make -j${nproc}
   )
 
   echo "Building gvim..."
@@ -93,7 +93,7 @@ build() {
       --enable-luainterp=dynamic \
       --enable-tclinterp=dynamic \
       --enable-canberra
-    make
+    make -j${nproc}
   )
 }
 
