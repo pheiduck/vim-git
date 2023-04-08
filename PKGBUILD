@@ -12,12 +12,12 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=9.0.1441
+pkgver=9.0.1442
 _versiondir=90
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
 url='https://www.vim.org'
-arch=('x86_64')
+arch=('any')
 license=('custom:vim')
 makedepends=('glibc' 'libgcrypt' 'gpm' 'python' 'ruby' 'libxt' 'gtk4' 'lua'
              'gawk' 'tcl' 'zlib' 'libcanberra')
