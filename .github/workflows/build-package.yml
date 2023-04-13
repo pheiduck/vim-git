@@ -25,8 +25,7 @@ jobs:
           libssl-dev \
           zip \
           zstd
-          sudo python3 -m pip install meson
-          sudo python3 -m pip install ninja
+          sudo python3 -m pip -q install meson ninja
       - id: install_pacman
         run: |
           sudo git clone -q --depth 1 https://gitlab.manjaro.org/packages/core/pacman.git
@@ -61,7 +60,7 @@ jobs:
           
           mkdir -p archlinux-keyring
           pushd archlinux-keyring
-          wget --quiet https://archlinux.org/packages/core/any/archlinux-keyring/download -O /tmp/archlinux-keyring.tar.zst
+          curl -sL https://archlinux.org/packages/core/any/archlinux-keyring/download -o /tmp/archlinux-keyring.tar.zst
           tar --use-compress-program=unzstd --strip-components=4 --wildcards -xvf /tmp/archlinux-keyring.tar.zst usr/share/pacman/keyrings/*
           sudo install -m0644 archlinux.gpg /usr/share/pacman/keyrings/
           sudo install -m0644 archlinux-trusted /usr/share/pacman/keyrings/
