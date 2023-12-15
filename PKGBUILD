@@ -16,13 +16,27 @@ pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
 pkgver=9.0.2167
 _versiondir=90
-pkgrel=1
+pkgrel=2
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
 url='https://www.vim.org'
 arch=('any')
 license=('custom:vim')
-makedepends=('glibc' 'libgcrypt' 'gpm' 'python' 'ruby' 'libxt' 'gtk4' 'lua'
-             'gawk' 'tcl' 'zlib' 'libcanberra')
+makedepends=(
+  gawk
+  git
+  glibc
+  gpm
+  gtk3
+  libcanberra
+  libgcrypt
+  libxt
+  lua
+  perl
+  python
+  ruby
+  tcl
+  zlib
+)
 source=(https://github.com/${pkgbase}/${pkgbase}/archive/v${pkgver}/${pkgbase}-${pkgver}.tar.gz
         vimrc
         archlinux.vim
@@ -47,7 +61,7 @@ prepare() {
 }
 
 build() {
-  echo "Building vim..."
+  msg2 "Building vim..."
   (cd vim-${pkgver}
     ./configure \
       --prefix=/usr \
@@ -70,7 +84,7 @@ build() {
     make -j${nproc}
   )
 
-  echo "Building gvim..."
+  msg2 "Building gvim..."
   (cd gvim-${pkgver}
     ./configure \
       --prefix=/usr \
@@ -201,6 +215,9 @@ package_gvim() {
   # license
    install -Dm 644 runtime/doc/uganda.txt \
     "${pkgdir}"/usr/share/licenses/${pkgname}/license.txt
+
+  # pacman hook for documentation helptags
+  install -Dm 644 "${srcdir}"/vimdoc.hook "${pkgdir}"/usr/share/libalpm/hooks/vimdoc.hook
 }
 
 # vim: ts=2 sw=2 et:
