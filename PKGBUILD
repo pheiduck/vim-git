@@ -14,7 +14,7 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=9.1.0037
+pkgver=9.1.0038
 _versiondir=91
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
