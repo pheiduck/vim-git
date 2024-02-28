@@ -79,7 +79,7 @@ jobs:
       - id: publish_package
         shell: bash -O extglob {0}
         run: |
-          _ver=$(curl -s https://api.github.com/repos/vim/vim/tags | grep name | sed -n "1p" | cut -c15-22)
+          _ver=$(curl -s https://api.github.com/repos/vim/vim/tags | sed -n "3p" | cut -c15-22)
           _rel=$(grep ^pkgrel= ${{ matrix.package }}/PKGBUILD | cut -d'=' -f2)
           _tag=${_ver}-${_rel}
           echo ${{ github.token }} | gh auth login --with-token
