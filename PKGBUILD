@@ -14,8 +14,8 @@
 
 pkgbase=vim
 pkgname=('vim' 'gvim' 'vim-runtime')
-pkgver=9.1.0139
-_versiondir=91
+pkgver=$(curl -s https://api.github.com/repos/vim/vim/tags | grep name | sed -n "1p" | cut -c15-22)
+_versiondir=$(curl -s https://api.github.com/repos/vim/vim/tags | grep name | sed -n "1p" | cut -c15,17)
 pkgrel=1
 pkgdesc='Vi Improved, a highly configurable, improved version of the vi text editor'
 url='https://www.vim.org'
