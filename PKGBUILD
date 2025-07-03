@@ -69,6 +69,7 @@ build() {
       --localstatedir=/var/lib/vim \
       --with-features=huge \
       --with-compiledby='Arch Linux' \
+      --with-wayland=no \
       --enable-gpm \
       --enable-acl \
       --with-x=no \
